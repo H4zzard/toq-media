@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Torq Media: marketing e vendas para o mercado automotivo em todo o Brasil." />
+  <title>Torq Media | Acelere seu resultado</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #050505;
+      --ink-soft: #140607;
+      --blue: #d60712;
+      --blue-bright: #f21b27;
+      --cyan: #ff3340;
+      --white: #f4f8ff;
+      --muted: #8da1b8;
+      --line: rgba(255, 255, 255, .16);
+      --panel: rgba(28, 11, 13, .76);
+      --condensed: "Barlow Condensed", Impact, sans-serif;
+      --body: "DM Sans", sans-serif;
+      --mono: "Space Mono", monospace;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--ink); color: var(--white); font-family: var(--body); overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    .container { width: min(1160px, calc(100% - 48px)); margin: 0 auto; }
+    .eyebrow { color: var(--cyan); font: 700 11px var(--mono); letter-spacing: .16em; text-transform: uppercase; }
+    .eyebrow::before { content: ""; display: inline-block; width: 28px; height: 2px; margin: 0 10px 3px 0; background: var(--cyan); }
+    h1, h2, h3, p { margin: 0; }
+    h1, h2, h3 { font-family: var(--condensed); text-transform: uppercase; }
+    h1 { max-width: 720px; font-size: clamp(58px, 8vw, 105px); line-height: .88; letter-spacing: -.025em; }
+    h1 span, h2 span { color: var(--cyan); }
+    h2 { font-size: clamp(44px, 5vw, 72px); line-height: .93; letter-spacing: -.02em; }
+    .lead { color: #dfcfd0; font-size: 17px; line-height: 1.65; max-width: 560px; }
+    .btn { display: inline-flex; align-items: center; gap: 10px; border: 1px solid var(--blue-bright); border-radius: 4px; padding: 14px 20px; background: var(--blue); color: white; font-weight: 700; transition: transform .2s, background .2s, box-shadow .2s; }
+    .btn:hover { transform: translateY(-3px); background: var(--blue-bright); box-shadow: 0 10px 32px rgba(242, 27, 39, .35); }
+    .btn.ghost { background: transparent; border-color: #6a3035; color: #f2dfe0; }
+    .btn.ghost:hover { border-color: var(--cyan); color: white; }
+
+    .topbar { position: absolute; z-index: 5; top: 0; left: 0; right: 0; padding: 28px 0; }
+    .nav { display: flex; align-items: center; justify-content: space-between; }
+    .logo { display: inline-flex; align-items: center; width: 150px; height: 58px; }
+    .logo-image { display: block; width: 150px; height: 58px; object-fit: cover; object-position: center 50%; mix-blend-mode: screen; }
+    .nav-links { display: flex; gap: 28px; color: #acc0d8; font-size: 13px; }
+    .nav-links a:hover { color: white; }
+    .menu { display: none; background: none; color: white; border: 0; font-size: 28px; }
+
+    .hero { position: relative; min-height: 790px; display: flex; align-items: center; padding: 150px 0 100px; overflow: hidden; background: radial-gradient(circle at 80% 48%, rgba(180, 9, 20, .28), transparent 34%), linear-gradient(125deg, #020202 5%, #160609 65%, #050505); }
+    .hero::before { content: ""; position: absolute; inset: 0; opacity: .28; background-image: linear-gradient(rgba(255, 255, 255, .1) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .1) 1px, transparent 1px); background-size: 56px 56px; mask-image: linear-gradient(90deg, black, transparent 75%); }
+    .hero::after { content: ""; position: absolute; width: 720px; height: 470px; right: -90px; bottom: -70px; transform: skewX(-22deg); border: 1px solid rgba(242, 27, 39, .4); background: linear-gradient(145deg, rgba(180, 9, 20, .2), transparent 60%); }
+    .hero-content { position: relative; z-index: 1; }
+    .hero h1 { margin: 22px 0 24px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    .hero-proof { display: flex; gap: 30px; margin-top: 66px; }
+    .proof-item { border-left: 2px solid var(--blue); padding-left: 13px; }
+    .proof-item strong { display: block; font: 700 29px var(--condensed); }
+    .proof-item small { color: var(--muted); font-size: 11px; }
+    .hero-badge { position: absolute; z-index: 2; right: 7%; bottom: 24%; width: 180px; padding: 16px; border: 1px solid rgba(242, 27, 39, .6); background: rgba(35, 7, 10, .8); transform: rotate(-8deg); clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%); }
+    .hero-badge b { display: block; color: var(--cyan); font: 700 42px var(--condensed); line-height: .8; }
+    .hero-badge span { font: 10px var(--mono); color: white; text-transform: uppercase; }
+
+    .logo-strip { padding: 25px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: #050505; }
+    .logo-list { display: flex; align-items: center; justify-content: space-between; gap: 24px; color: #5b6d80; font: 700 17px var(--condensed); letter-spacing: .08em; }
+    .logo-list span:nth-child(2n) { color: #b9a3a5; }
+
+    .section { padding: 110px 0; }
+    .section.dark { background: #050505; }
+    .section.blue { background: linear-gradient(135deg, #200507, #080202); }
+    .section-head { display: flex; justify-content: space-between; align-items: end; gap: 32px; margin-bottom: 44px; }
+    .section-head > div:last-child { max-width: 370px; }
+    .section-head p { color: var(--muted); line-height: 1.6; font-size: 14px; }
+    .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .service { min-height: 250px; padding: 28px; border: 1px solid var(--line); background: linear-gradient(150deg, rgba(45, 18, 20, .72), rgba(13, 7, 8, .7)); position: relative; overflow: hidden; }
+    .service::after { content: ""; position: absolute; width: 100px; height: 100px; right: -36px; bottom: -35px; border: 1px solid rgba(255, 51, 64, .23); transform: rotate(45deg); }
+    .service.featured { grid-column: span 2; background: linear-gradient(125deg, #9e0b14, #26070a 72%); }
+    .service-num { color: var(--cyan); font: 700 13px var(--mono); }
+    .service h3 { margin: 45px 0 10px; font-size: 34px; }
+    .service p { position: relative; z-index: 1; color: #c4adaf; line-height: 1.6; font-size: 14px; max-width: 340px; }
+    .service.featured p { color: #f3dfe0; }
+    .metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; margin-top: 50px; background: var(--line); }
+    .metric { padding: 25px; background: #140709; }
+    .metric strong { display: block; color: var(--cyan); font: 700 48px var(--condensed); }
+    .metric span { color: var(--muted); font-size: 12px; }
+
+    .process { display: grid; grid-template-columns: .75fr 1fr; gap: 100px; align-items: center; }
+    .process-copy .lead { margin-top: 22px; }
+    .process-list { display: grid; gap: 2px; }
+    .process-row { display: grid; grid-template-columns: 52px 1fr; gap: 17px; align-items: start; padding: 23px 0; border-top: 1px solid var(--line); }
+    .process-row:last-child { border-bottom: 1px solid var(--line); }
+    .process-row b { color: var(--cyan); font: 700 25px var(--condensed); }
+    .process-row h3 { font-size: 25px; margin-bottom: 5px; }
+    .process-row p { color: var(--muted); font-size: 13px; line-height: 1.5; }
+
+    .map-section { position: relative; overflow: hidden; }
+    .map-section::after { content: ""; position: absolute; right: 7%; bottom: 9%; width: 210px; height: 1px; background: linear-gradient(90deg, transparent, rgba(255, 51, 64, .6)); }
+    .map-layout { display: grid; grid-template-columns: .9fr 1.1fr; gap: 70px; align-items: center; }
+    .map-graphic { position: relative; min-height: 390px; display: grid; place-items: center; perspective: 700px; }
+    .map-image { display: block; width: min(100%, 520px); height: auto; object-fit: contain; filter: drop-shadow(0 0 30px rgba(242, 27, 39, .22)); }
+
+    .cta { padding: 105px 0; background: linear-gradient(115deg, #c10c18, #4c070c 55%, #0e0203); position: relative; overflow: hidden; }
+    .cta::before { content: "TORQ"; position: absolute; right: -20px; bottom: -60px; color: rgba(255,255,255,.05); font: 800 250px var(--condensed); font-style: italic; }
+    .cta-inner { position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; gap: 35px; }
+    .cta h2 { max-width: 600px; }
+    .cta h2 span { color: white; }
+    .cta .btn { background: white; color: #b50914; border-color: white; }
+
+    footer { padding: 55px 0 28px; background: #010305; border-top: 1px solid var(--line); }
+    .footer-main { display: grid; grid-template-columns: 1.3fr 1fr 1fr 1fr; gap: 40px; padding-bottom: 54px; }
+    footer .logo { margin-bottom: 17px; }
+    footer p, footer a { display: block; color: #71849a; font-size: 12px; line-height: 1.8; }
+    footer h3 { font: 700 12px var(--mono); color: #d8e6f8; letter-spacing: .08em; margin-bottom: 15px; }
+    .copyright { display: flex; justify-content: space-between; gap: 20px; border-top: 1px solid var(--line); padding-top: 24px; color: #526579; font-size: 11px; }
+
+    @media (max-width: 800px) {
+      .container { width: min(100% - 36px, 600px); }
+      .nav-links { display: none; } .menu { display: block; }
+      .hero { min-height: 770px; padding-top: 125px; } .hero-badge { display: none; }
+      .hero-proof { gap: 17px; margin-top: 48px; } .proof-item strong { font-size: 24px; }
+      .logo-list { overflow: hidden; justify-content: flex-start; font-size: 14px; gap: 28px; }
+      .section { padding: 76px 0; } .section-head, .process, .map-layout, .cta-inner { display: block; }
+      .section-head > div:last-child { margin-top: 20px; } .service-grid { grid-template-columns: 1fr; } .service.featured { grid-column: auto; }
+      .metrics { grid-template-columns: repeat(2, 1fr); } .metric strong { font-size: 37px; }
+      .process-list { margin-top: 45px; } .map-graphic { min-height: 290px; margin-top: 35px; } .map-image { width: min(100%, 430px); }
+      .cta .btn { margin-top: 30px; } .footer-main { grid-template-columns: 1fr 1fr; } .footer-main > div:first-child { grid-column: span 2; }
+      .copyright { display: block; } .copyright span { display: block; margin-top: 8px; }
+    }
+    @media (prefers-reduced-motion: no-preference) { .hero-content { animation: rise .8s ease both; } .service, .process-row { transition: border-color .2s, transform .2s; } .service:hover { border-color: var(--blue-bright); transform: translateY(-5px); } @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a class="logo" href="#top" aria-label="Torq Media"><img class="logo-image" src="torq-logo.png" alt="Torq Media" /></a>
+      <nav class="nav-links" aria-label="Navegação principal"><a href="#servicos">Serviços</a><a href="#processo">Como atuamos</a><a href="#brasil">Alcance nacional</a><a href="#contato">Contato</a></nav>
+      <button class="menu" aria-label="Abrir menu">☰</button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-content">
+        <div class="eyebrow">Marketing que move negócios</div>
+        <h1>Acelere seu resultado<br /><span>no mercado</span> automotivo</h1>
+        <p class="lead">Estratégia, tráfego e vendas para concessionárias, lojas e operações automotivas que querem crescer com previsibilidade.</p>
+        <div class="hero-actions"><a class="btn" href="#contato">Quero acelerar agora <span>→</span></a><a class="btn ghost" href="#servicos">Conheça a Torq</a></div>
+        <div class="hero-proof"><div class="proof-item"><strong>+700</strong><small>clientes atendidos</small></div><div class="proof-item"><strong>+9M</strong><small>em vendas geradas</small></div><div class="proof-item"><strong>+26</strong><small>estados alcançados</small></div></div>
+      </div>
+      <div class="hero-badge"><b>+700</b><span>operações aceleradas no Brasil</span></div>
+    </section>
+
+    <div class="logo-strip"><div class="container logo-list"><span>GRUPO A</span><span>BMV</span><span>BRASIL MOTORS</span><span>REDE AUTO</span><span>CAR HOUSE</span><span>+ parceiros</span></div></div>
+
+    <section class="section" id="servicos">
+      <div class="container">
+        <div class="section-head"><div><div class="eyebrow">Nosso método</div><h2>O que você encontra<br /><span>na Torq?</span></h2></div><div><p>Você não precisa de mais uma agência. Precisa de um time que entenda a operação, encontre oportunidades e transforme atenção em vendas.</p></div></div>
+        <div class="service-grid">
+          <article class="service featured"><span class="service-num">01 / AQUISIÇÃO</span><h3>Tráfego pago</h3><p>Campanhas que colocam sua oferta na frente das pessoas certas, com criativos que conversam com o momento de compra.</p></article>
+          <article class="service"><span class="service-num">02 / CONVERSÃO</span><h3>Vendas digitais</h3><p>Processos, abordagem e acompanhamento para o lead não esfriar no caminho.</p></article>
+          <article class="service"><span class="service-num">03 / RELACIONAMENTO</span><h3>CRM & dados</h3><p>Visibilidade de ponta a ponta para decidir com clareza e vender melhor.</p></article>
+          <article class="service"><span class="service-num">04 / MARCA</span><h3>Conteúdo</h3><p>Conteúdo com presença, personalidade e intenção comercial para sua operação.</p></article>
+          <article class="service"><span class="service-num">05 / PERFORMANCE</span><h3>Consultoria</h3><p>Leitura estratégica do negócio e plano de ação para acelerar o que já funciona.</p></article>
+        </div>
+        <div class="metrics"><div class="metric"><strong>+26</strong><span>estados atendidos</span></div><div class="metric"><strong>+9M</strong><span>em vendas geradas</span></div><div class="metric"><strong>+50</strong><span>especialistas</span></div><div class="metric"><strong>24h</strong><span>para começar a agir</span></div></div>
+      </div>
+    </section>
+
+    <section class="section dark" id="processo"><div class="container process"><div class="process-copy"><div class="eyebrow">Do diagnóstico à venda</div><h2>Estratégia que sai<br /><span>do papel.</span></h2><p class="lead">Um time conectado à sua rotina para transformar dados, criatividade e velocidade em resultado comercial.</p><a class="btn" href="#contato" style="margin-top:28px">Falar com um especialista →</a></div><div class="process-list"><div class="process-row"><b>01</b><div><h3>Entender o cenário</h3><p>Mapeamos operação, público, oferta e os gargalos que estão segurando seu crescimento.</p></div></div><div class="process-row"><b>02</b><div><h3>Construir a máquina</h3><p>Planejamos campanhas, conteúdo, atendimento e métricas em uma mesma direção.</p></div></div><div class="process-row"><b>03</b><div><h3>Acompanhar de perto</h3><p>Otimizações constantes para fazer mais com o orçamento e aproveitar cada oportunidade.</p></div></div></div></div></section>
+
+    <section class="section blue map-section" id="brasil"><div class="container map-layout"><div><div class="eyebrow">Do Oiapoque ao Chuí</div><h2>O melhor parceiro<br /><span>para o Brasil.</span></h2><p class="lead" style="margin-top:22px">A Torq Media conecta estratégia e execução para operações automotivas em todo o país. Onde existe um negócio querendo crescer, existe uma oportunidade de acelerar.</p><div class="hero-proof"><div class="proof-item"><strong>+26</strong><small>estados</small></div><div class="proof-item"><strong>+50</strong><small>especialistas</small></div></div></div><div class="map-graphic"><img class="map-image" src="torq-map.png" alt="Mapa 2.5D do Brasil com pontos de atuação da Torq Media" /></div></div></section>
+
+    <section class="cta" id="contato"><div class="container cta-inner"><div><div class="eyebrow">Pronto para acelerar?</div><h2>Seu próximo resultado<br /><span>começa agora.</span></h2></div><a class="btn" href="https://wa.me/5500000000000" target="_blank" rel="noreferrer">Quero falar com a Torq <span>→</span></a></div></section>
+  </main>
+
+  <footer><div class="container"><div class="footer-main"><div><a class="logo" href="#top"><img class="logo-image" src="torq-logo.png" alt="Torq Media" /></a><p>Acelerando o crescimento<br />do mercado automotivo.</p></div><div><h3>EXPLORE</h3><a href="#servicos">Serviços</a><a href="#processo">Nosso método</a><a href="#brasil">Atuação nacional</a></div><div><h3>FALE COM A GENTE</h3><a href="mailto:contato@torqmedia.com.br">contato@torqmedia.com.br</a><a href="#contato">WhatsApp comercial</a></div><div><h3>SIGA A TORQ</h3><a href="#">Instagram</a><a href="#">LinkedIn</a></div></div><div class="copyright"><span>© 2026 Torq Media. Todos os direitos reservados.</span><span>Marketing, performance e vendas para o setor automotivo.</span></div></div></footer>
+</body>
+</html>
